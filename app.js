@@ -33,32 +33,34 @@ function createGenre(){
 
     dCount += 1; 
     var n = document.getElementById("name").value;
-    var g = new Genre();
-    g.name = n;
-     
-    enqueue(genres, g);
+    if (n != "") {
+        var g = new Genre();
+        g.name = n;
+        
+        enqueue(genres, g);
 
-    document.getElementById("createGenre").reset(); 
-    displayGenres();
-    dropmenu();
+        document.getElementById("createGenre").reset(); 
+        displayGenres();
+        dropmenu();
 
-    var genreNames = []; 
-    for (var i = 0; i < genres.length; i += 1) {
-        genreNames[i] = genres[i].name;
+        var genreNames = []; 
+        for (var i = 0; i < genres.length; i += 1) {
+            genreNames[i] = genres[i].name;
+        }
+        
+        JSsort(genreNames,true); 
+        for (var i = 0; i < genreNames.length; i += 1) {
+            var gr = new Genre(); 
+            gr.name = genreNames[i]; 
+
+            genres[i] = gr; 
+        }
+
+        document.getElementById('genreConfirm').innerHTML = n + ' genre successfully added';
+        document.getElementById('genreConfirm').style.opacity = '1'; 
+
+        console.log(genres);
     }
-    
-    JSsort(genreNames,true); 
-    for (var i = 0; i < genreNames.length; i += 1) {
-        var gr = new Genre(); 
-        gr.name = genreNames[i]; 
-
-        genres[i] = gr; 
-    }
-
-    document.getElementById('genreConfirm').innerHTML = n + ' genre successfully added';
-    document.getElementById('genreConfirm').style.opacity = '1'; 
-
-    console.log(genres);
 
 }
 //create movie function to get input from form, create a movie instance and add it to the global array
@@ -179,7 +181,7 @@ function loadGenres() {
     xhttp.open("GET", "genreDB.txt", true);
     xhttp.send();
 }   
-//loadGenres();
+loadGenres();
 
 function loadMovies() {
     var xhttp = new XMLHttpRequest(); 
