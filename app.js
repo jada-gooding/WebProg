@@ -28,6 +28,9 @@ var dCount = 0;
 
 //create genre function to get input from form, create a genre instance and add it to the global array
 function createGenre(){
+    
+
+
     dCount += 1; 
     var n = document.getElementById("name").value;
     var g = new Genre();
@@ -52,9 +55,10 @@ function createGenre(){
         genres[i] = gr; 
     }
 
-    console.log(genres);
+    document.getElementById('genreConfirm').innerHTML = n + ' genre successfully added';
+    document.getElementById('genreConfirm').style.opacity = '1'; 
 
-    
+    console.log(genres);
 
 }
 //create movie function to get input from form, create a movie instance and add it to the global array

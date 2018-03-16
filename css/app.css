@@ -1,9 +1,13 @@
 #createGenre {
     margin-bottom : 50px; 
+    border : 2px solid black; 
+    width : 60%; 
+    padding : 20px; 
 }
 
-#createGenre #name {
+#createGenre #name, #createMovie > * {
     padding : 20px; 
+    width : 30%; 
 }
 
 #createGenre #add-genre-button {
@@ -12,4 +16,21 @@
 
 #createGenre #add-genre-button:hover {
     cursor : pointer; 
+}
+
+#genreConfirm {
+    padding : 20px; 
+    border : 2px solid green; 
+    text-align : center; 
+    transition : all .8s; 
+    opacity : 0; 
+    width : 40%; 
+    margin : 0 auto; 
+    margin-bottom : 40px;  
+}
+
+#createMovie {
+    padding : 20px; 
+    width : 60%; 
+    border : 2px solid black; 
 }

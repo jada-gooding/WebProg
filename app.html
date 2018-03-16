@@ -6,25 +6,31 @@
         <link rel="stylesheet" href="css/app.css">
         
         <body>
+            <center>
             <form id="createGenre">
-                <input id="name" type="text" placeholder="Name of Genre">
+                <input id="name" type="text" placeholder="Name of Genre"><br>
                 <input type="button" onclick="createGenre()" value="Add Genre" id="add-genre-button">
             </form>
+            </center>
 
+            <div id="genreConfirm"></div>
 
+            <center>
             <form id="createMovie">
-                <input id="uuid" type="text" placeholder="Movie ID">
-                <input id="title" type="text" placeholder="Name of Movie">
-                <input id="year" type="text" placeholder="Movie Release Year">              
-                <select id="genres">
+                <input id="uuid" type="text" placeholder="Movie ID"><br>
+                <input id="title" type="text" placeholder="Name of Movie"><br>
+                <input id="year" type="text" placeholder="Movie Release Year"><br>              
+                <select id="genres" placeholder="Genre">
 
-                </select>
+                </select><br>
                 <input type="button" onclick="createMovie()" value="Create Movie">
             </form>
+            </center>
+
+            
 
             <section>
                 <ol id="genreList">
-            
                 </ol>
             </section>
 
