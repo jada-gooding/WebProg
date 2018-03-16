@@ -9,7 +9,7 @@ class Movie:
     def addRelatedMovie(self, m):
         if isinstance(m, Movie):
             related.append(m)
-            self.return true
+            return true
         return false
 
     def setGenre(self, g):
