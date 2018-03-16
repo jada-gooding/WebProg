@@ -1,6 +1,5 @@
 #createGenre {
     margin-bottom : 50px; 
-<<<<<<< HEAD
     border : 2px solid black; 
     width : 60%; 
     padding : 20px; 
@@ -9,12 +8,6 @@
 #createGenre #name, #createMovie > * {
     padding : 20px; 
     width : 30%; 
-=======
-}
-
-#createGenre #name {
-    padding : 20px; 
->>>>>>> 9e203525832093fc9b7036ce3d431d9e2edc34a6
 }
 
 #createGenre #add-genre-button {
@@ -23,7 +16,6 @@
 
 #createGenre #add-genre-button:hover {
     cursor : pointer; 
-<<<<<<< HEAD
 }
 
 #genreConfirm {
@@ -41,6 +33,4 @@
     padding : 20px; 
     width : 60%; 
     border : 2px solid black; 
-=======
->>>>>>> 9e203525832093fc9b7036ce3d431d9e2edc34a6
 }
