@@ -112,8 +112,7 @@ function displayGenres(){
     }
 
     for(var i=0; i<genres.length; i++){
-       let g = genres[i];
-       console.log("This is G", g);
+        let g = genres[i];
         var e = document.createElement("li");
         e.innerHTML = g.name
         gen.appendChild(e);   
@@ -144,3 +143,57 @@ function displayMovies(){
 }
 
 
+
+
+function separateStr(str){
+    const records = str.split("\n");
+    for(let i=0 ; i<records.length; i+=1){
+        const name = records[i];
+        let g = new Genre();
+        g.name = name;
+        enqueue(genres, g);
+    }
+}
+function separateMovies(records){
+    for(let i=0; i<records.length; i+=1){
+        let m = new Movie();
+        m.uuid = records[i].uuid;
+        m.title = records[i].title;
+        m.year = records[i].year;
+        m.setGenre(records[i].genre);
+        enqueue(movies, m);
+    }
+}
+
+function loadGenres() { 
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            separateStr(this.responseText);          
+            //console.log(genres[0]);
+            //displayGenres();
+        }
+    };
+
+    xhttp.open("GET", "genreDB.txt", true);
+    xhttp.send();
+}   
+//loadGenres();
+
+function loadMovies() {
+    var xhttp = new XMLHttpRequest(); 
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            //console.log (this.responseText); 
+            let data = JSON.parse(this.responseText);
+            console.log(data);
+            separateMovies(data);
+            displayMovies();
+        }
+    }; 
+
+    xhttp.open("GET", "moviesDB.json", true); 
+    xhttp.send(); 
+}
+loadMovies();
