@@ -1,0 +1,10 @@
+comedy
+action
+horror
+drama
+thriller
+history
+documentary
+anime
+animation
+romance

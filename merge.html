@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Merge</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <main>
+        <h1 class="header">Merge Proof!</h1>
+
+        <center>
+        <input type="text" name="fname" id="fname" placeholder="Enter First Name...">
+        <button onclick="addFname()">Add</button>
+        
+
+        <input type="text" name="lname" id="lname" placeholder="Enter Last Name...">
+        <button onclick="addLname()">Add</button>
+        </center>
+
+        <h2 class="listHeader">First Names:</h2>
+        <div class="first-names"></div> <!-- Container to hold all first names -->
+        
+        
+        <h2 class="listHeader">Last Names:</h2>
+        <div class="last-names"></div> <!-- Container to hold all last names -->
+
+        <center><button onclick="displayMerge2Single()" id="merge2Single-btnn">Merge First Names & Last Names Into Single List</button></center>
+        <center><button onclick="displayMerge2Object()" id="merge2Object-btn">Create Objects Using First Names & Last Names</button></center>
+
+        <h2 class="listHeader" id="mergedNamesHeader">First and Last Names Merged</h2>
+        <div class="mergedNames"></div> <!-- Container to hold all merged names -->
+
+        <h2 class="listHeader" id="objectsHeader">Object Versions of Merged Names</h2>
+        <div class="objects"></div> <!-- Container to hold all objects -->
+        
+    </main>
+
+
+    
+    <script src="section5.js"></script>
+</body>
+</html>

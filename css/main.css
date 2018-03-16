@@ -1,0 +1,43 @@
+.header {
+  text-align: center; }
+
+.names-item {
+  width: 30%;
+  padding: 10px;
+  color: white;
+  background: black;
+  border-bottom: 1px solid white;
+  margin: 0 auto;
+  text-align: center; }
+
+.object-item {
+  width: 20%;
+  padding: 10px;
+  color: white;
+  background: black;
+  border-bottom: 1px solid white;
+  margin: 0 auto;
+  text-align: center; }
+
+.listHeader {
+  text-align: center; }
+
+.first-names, .last-names {
+  margin: 0 auto; }
+
+#merge2Single-btn {
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  background: black;
+  border: 1px solid black;
+  transition: all .8s;
+  margin: 20px 0; }
+  #merge2Single-btn:hover {
+    color: black;
+    background: red;
+    cursor: pointer; }
+
+#mergedNamesHeader, #objectsHeader {
+  opacity: 0; }
