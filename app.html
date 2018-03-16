@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>App</title>
+        
+        <body>
+            <form id="createGenre">
+                <input id="name" type="text" placeholder="Name of Genre">
+                <input type="button" onclick="createGenre()">
+            </form>
+
+
+            <form id="createMovie">
+                <input id="uuid" type="text" placeholder="Movie ID">
+                <input id="title" type="text" placeholder="Name of Movie">
+                <input id="year" type="text" placeholder="Movie Release Year">              
+                <select id="genres">
+
+                </select>
+                <input type="button" onclick="createMovie()">
+            </form>
+
+            <section>
+                <ol id="genreList">
+            
+                </ol>
+            </section>
+
+            <section id="movieList">   
+            </section>
+                    
+
+
+          <script src="movieGenre.js"></script>
+          <script src="app.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    </head>
+</html>
