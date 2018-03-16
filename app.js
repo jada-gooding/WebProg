@@ -1,4 +1,4 @@
-//const movieGenre = require('./movieGenre').movieGenre;
+//Request to use util.js functions in app.js
 function myUtil( url ) {
     var ajax = new XMLHttpRequest();
     ajax.open( 'GET', url, false );
@@ -20,11 +20,13 @@ function myUtil( url ) {
 
 myUtil('util.js');
 
+//global arrays
 const genres = [];
 const movies = [];
 
-
 var dCount = 0;
+
+//create genre function to get input from form, create a genre instance and add it to the global array
 function createGenre(){
     dCount += 1; 
     var n = document.getElementById("name").value;
@@ -55,7 +57,7 @@ function createGenre(){
     
 
 }
-
+//create movie function to get input from form, create a movie instance and add it to the global array
 function createMovie(){
     var uuid = document.getElementById("uuid").value;
     var title = document.getElementById("title").value;
@@ -83,6 +85,7 @@ function createMovie(){
 
     
 }
+//used to populate the dropdown menu in the create movie form
 function dropmenu(){
 
 var gen = document.getElementById("genres");
@@ -95,7 +98,7 @@ var gen = document.getElementById("genres");
 
         gen.appendChild(e);
 }
- 
+//populates a section in app.html with genres from the global array
 function displayGenres(){
     var gen = document.getElementById("genreList");
 
@@ -113,7 +116,7 @@ function displayGenres(){
     }
 
 }
-
+//populates a table section in app.html with movies from the global array
 function displayMovies(){
     let htmlStr = "<table>";
     htmlStr += "<thead><tr><th>UUID</th><th>Title</th>";
