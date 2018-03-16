@@ -1,4 +1,4 @@
 1. Make it so that a genre can only be added once
 2. Movies cannot have the same UUID
 3. An empty genre is added if no text is entered into the add genre field. Nothing should be added. -- FIXED
-4. The genres value in the JSON file is a string but the movie class need it to be an instance of the Genre class...so it displays null
+4. The genres value in the JSON file is a string but the movie class need it to be an instance of the Genre class...so it displays null --FIXED
