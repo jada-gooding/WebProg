@@ -28,20 +28,26 @@ var dCount = 0;
 
 //create genre function to get input from form, create a genre instance and add it to the global array
 function createGenre(){
-    
-
 
     dCount += 1; 
     var n = document.getElementById("name").value;
     if (n != "") {
         var g = new Genre();
         g.name = n;
+
+        for(var i=0; i<genres.length; i++){
+            if(n === genres[i].name){
+                alert("Genre already exists");
+                document.getElementById("createGenre").reset(); 
+                return false;
+            }
+        }
         
         enqueue(genres, g);
 
         document.getElementById("createGenre").reset(); 
-        displayGenres();
-        dropmenu();
+        dropdown();
+        displayLast();
 
         var genreNames = []; 
         for (var i = 0; i < genres.length; i += 1) {
@@ -81,6 +87,14 @@ function createMovie(){
     movie.year = year;
     movie.setGenre(g);
 
+    for(var i=0; i<movies.length; i++){
+        if(uuid === movies[i].uuid){
+            alert("Movie with that ID already exists");
+            document.getElementById("createMovie").reset();
+            return false;
+        }
+    }
+
     enqueue(movies, movie);
 
     document.getElementById("createMovie").reset(); 
@@ -95,14 +109,32 @@ function createMovie(){
 function dropmenu(){
 
 var gen = document.getElementById("genres");
+
+     if (dCount > 1) {
+        while(gen.firstChild)
+             gen.removeChild(gen.firstChild); 
+     }    
     
-        let g = genres[genres.length-1];
+    for(var i=0; i<genres.length; i++){
+        let g = genres[i];
         var e = document.createElement("option");
         e.innerHTML = g.name;
         var stringobj = flatten(g);
         e.value = stringobj;
-
         gen.appendChild(e);
+    }
+
+}
+function dropdown(){
+    var gen = document.getElementById("genres");
+    
+    let g = genres[genres.length-1];
+    var e = document.createElement("option");
+    e.innerHTML = g.name;
+    var stringobj = flatten(g);
+    e.value = stringobj;
+    gen.appendChild(e);
+
 }
 //populates a section in app.html with genres from the global array
 function displayGenres(){
@@ -119,6 +151,14 @@ function displayGenres(){
         e.innerHTML = g.name
         gen.appendChild(e);   
     }
+
+}
+function displayLast(){
+    var gen = document.getElementById("genreList");
+    let g = genres[genres.length-1];
+    var e = document.createElement("li");
+    e.innerHTML = g.name
+    gen.appendChild(e);   
 
 }
 //populates a table section in app.html with movies from the global array
@@ -164,7 +204,8 @@ function loadGenres() {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
             separateStr(this.responseText); 
-            displayGenres();        
+            displayGenres();     
+            dropmenu()   
         }
     };
 
