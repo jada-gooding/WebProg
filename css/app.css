@@ -1,0 +1,15 @@
+#createGenre {
+    margin-bottom : 50px; 
+}
+
+#createGenre #name {
+    padding : 20px; 
+}
+
+#createGenre #add-genre-button {
+    padding : 20px; 
+}
+
+#createGenre #add-genre-button:hover {
+    cursor : pointer; 
+}

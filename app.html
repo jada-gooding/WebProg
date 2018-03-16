@@ -3,11 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>App</title>
+        <link rel="stylesheet" href="css/app.css">
         
         <body>
             <form id="createGenre">
                 <input id="name" type="text" placeholder="Name of Genre">
-                <input type="button" onclick="createGenre()">
+                <input type="button" onclick="createGenre()" value="Add Genre" id="add-genre-button">
             </form>
 
 
@@ -18,7 +19,7 @@
                 <select id="genres">
 
                 </select>
-                <input type="button" onclick="createMovie()">
+                <input type="button" onclick="createMovie()" value="Create Movie">
             </form>
 
             <section>
