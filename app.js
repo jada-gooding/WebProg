@@ -125,16 +125,16 @@ function displayGenres(){
 function displayMovies(){
     let htmlStr = "<table>";
     htmlStr += "<thead><tr><th>UUID</th><th>Title</th>";
-    htmlStr += "<th>Year</th><th>Genre</th>";
+    htmlStr += "<th>Year</th><th>Genre</th> <th>Related Movies</th>";
     htmlStr += "</tr></thead><tbody>";
 
     for(var i=0; i<movies.length; i++){
         let str = "<tr>";
             str += "<td>" + movies[i].uuid + "</td>" + "<td>"+ movies[i].title + "</td>";
-            str += "<td>" + movies[i].year + "</td>" + "<td>"+ movies[i].genres/*.name*/ + "</td>";
-           // for(var j=0; j<movies[i].related.length; j++){
-             //   str += "<td>" + movies[i].related[j].title + "</td>";
-            //}
+            str += "<td>" + movies[i].year + "</td>" + "<td>"+ movies[i].genres.name + "</td>";
+            for(var j=0; j<movies[i].related.length; j++){
+                str += "<td>" + movies[i].related[j] + "</td>";
+            }
 
         htmlStr += str;
     }
@@ -158,50 +158,22 @@ function separateStr(str){
 }
 
 
-// function separateMovies(records){
-//     for(let i=0; i<records.length; i+=1){
-//         let m = new Movie();
-//         m.uuid = records[i].uuid;
-//         m.title = records[i].title;
-//         m.year = records[i].year;
-//         m.setGenre(records[i].genre);
-//         enqueue(movies, m);
-//     }
-// }
-
 function loadGenres() { 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-            separateStr(this.responseText);          
-            //console.log(genres[0]);
-            //displayGenres();
+            separateStr(this.responseText); 
+            displayGenres();        
         }
     };
 
     xhttp.open("GET", "genreDB.txt", true);
     xhttp.send();
+
 }   
-//loadGenres();
+loadGenres();
 
-
-
-// function loadMovies() {
-//     var xhttp = new XMLHttpRequest(); 
-//     xhttp.onreadystatechange = function() {
-//         if (this.readyState === 4 && this.status === 200) {
-//             //console.log (this.responseText); 
-//             let data = /*JSON.parse*/(this.responseText);
-//             console.log(data);
-//             separateMovies(data);
-//             displayMovies();
-//         }
-//     }; 
-
-//     xhttp.open("GET", "moviesDB.json", true); 
-//     xhttp.send(); 
-// }
 
 function loadMovies() {
     var moviesRequest = new XMLHttpRequest(); 
@@ -217,7 +189,10 @@ function loadMovies() {
             m.uuid = movieData[i].uuid;
             m.title = movieData[i].title;
             m.year = movieData[i].year;
-            m.setGenre(movieData[i].genres);
+            let g = new Genre();
+            g.name = movieData[i].genres.name;
+            m.setGenre(g);  
+            m.related = movieData[i].related;
             enqueue(movies, m);
             /*--------------------------------------------*/
             
