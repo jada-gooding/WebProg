@@ -131,7 +131,7 @@ function displayMovies(){
     for(var i=0; i<movies.length; i++){
         let str = "<tr>";
             str += "<td>" + movies[i].uuid + "</td>" + "<td>"+ movies[i].title + "</td>";
-            str += "<td>" + movies[i].year + "</td>" + "<td>"+ movies[i].genres.name + "</td>";
+            str += "<td>" + movies[i].year + "</td>" + "<td>"+ movies[i].genres/*.name*/ + "</td>";
            // for(var j=0; j<movies[i].related.length; j++){
              //   str += "<td>" + movies[i].related[j].title + "</td>";
             //}
@@ -156,16 +156,18 @@ function separateStr(str){
         enqueue(genres, g);
     }
 }
-function separateMovies(records){
-    for(let i=0; i<records.length; i+=1){
-        let m = new Movie();
-        m.uuid = records[i].uuid;
-        m.title = records[i].title;
-        m.year = records[i].year;
-        m.setGenre(records[i].genre);
-        enqueue(movies, m);
-    }
-}
+
+
+// function separateMovies(records){
+//     for(let i=0; i<records.length; i+=1){
+//         let m = new Movie();
+//         m.uuid = records[i].uuid;
+//         m.title = records[i].title;
+//         m.year = records[i].year;
+//         m.setGenre(records[i].genre);
+//         enqueue(movies, m);
+//     }
+// }
 
 function loadGenres() { 
     var xhttp = new XMLHttpRequest();
@@ -181,21 +183,48 @@ function loadGenres() {
     xhttp.open("GET", "genreDB.txt", true);
     xhttp.send();
 }   
-loadGenres();
+//loadGenres();
+
+
+
+// function loadMovies() {
+//     var xhttp = new XMLHttpRequest(); 
+//     xhttp.onreadystatechange = function() {
+//         if (this.readyState === 4 && this.status === 200) {
+//             //console.log (this.responseText); 
+//             let data = /*JSON.parse*/(this.responseText);
+//             console.log(data);
+//             separateMovies(data);
+//             displayMovies();
+//         }
+//     }; 
+
+//     xhttp.open("GET", "moviesDB.json", true); 
+//     xhttp.send(); 
+// }
 
 function loadMovies() {
-    var xhttp = new XMLHttpRequest(); 
-    xhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            //console.log (this.responseText); 
-            let data = JSON.parse(this.responseText);
-            console.log(data);
-            separateMovies(data);
-            displayMovies();
-        }
-    }; 
+    var moviesRequest = new XMLHttpRequest(); 
+    moviesRequest.open('GET', 'moviesDB.json', true); 
 
-    xhttp.open("GET", "moviesDB.json", true); 
-    xhttp.send(); 
+    moviesRequest.onload = function() {
+        var movieData = JSON.parse(moviesRequest.responseText);
+        for (var i = 0; i < movieData.length; i += 1) {
+            console.log(movieData[i].title);
+
+            /*This is basically the separate movies function*/
+            let m = new Movie();
+            m.uuid = movieData[i].uuid;
+            m.title = movieData[i].title;
+            m.year = movieData[i].year;
+            m.setGenre(movieData[i].genres);
+            enqueue(movies, m);
+            /*--------------------------------------------*/
+            
+            displayMovies();  
+        }
+    }
+    moviesRequest.send();     
 }
 loadMovies();
+
