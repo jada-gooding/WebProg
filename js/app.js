@@ -93,7 +93,7 @@ function createMovie(){
         for(var i=0; i<movies.length; i++){
             if(uuid === movies[i].uuid){
                 alert("Movie with that ID already exists");
-                document.getElementById("createMovie").reset();
+                //document.getElementById("createMovie").reset();
                 return false;
             }
         }
