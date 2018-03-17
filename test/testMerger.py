@@ -1,4 +1,6 @@
-from merge import *
+import sys
+sys.path.insert(0, '../py')
+from merger import *
 
 var1 = ['Bat', 'Wonder', 'Iron', 'Bruce', 'Super']; 
 var2 = ['man', 'Woman', 'Man', 'Banner', 'Man'];
