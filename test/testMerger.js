@@ -1,4 +1,4 @@
-const merger = require('./merge');
+const merger = require('../js/merge');
 
 var1 = ['Bat', 'Wonder', 'Iron', 'Bruce', 'Super']; 
 var2 = ['man', 'Woman', 'Man', 'Banner', 'Man'];
