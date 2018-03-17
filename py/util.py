@@ -17,21 +17,21 @@ def addTo(arr,val,pos):
 
 def enqueue(arr,val):
 	arr.append(val)
+	return arr
 
 
 def dequeue(arr):
-	return arr.popleft()
+	return arr.pop(0)
 
 
-def addToObj(obj,i,val):
-	obj.update({i,val})
-	
+def addToObj(obj,loc,val):
+	obj.update({loc,val})
 	return obj
 
-def sort(arr,asc):
-	if(asc)
+def JSsort(arr,asc):
+	if(asc):
 		return sorted(arr)
-	else
+	else:
 		return sorted(arr,reverse=True)
 
 
