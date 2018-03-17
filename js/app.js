@@ -221,7 +221,7 @@ function loadGenres() {
         }
     };
 
-    xhttp.open("GET", "genreDB.txt", true);
+    xhttp.open("GET", "../data/genreDB.txt", true);
     xhttp.send();
 
 }   
@@ -230,7 +230,7 @@ loadGenres();
 
 function loadMovies() {
     var moviesRequest = new XMLHttpRequest(); 
-    moviesRequest.open('GET', 'moviesDB.json', true); 
+    moviesRequest.open('GET', '../data/moviesDB.json', true); 
 
     moviesRequest.onload = function() {
         var movieData = JSON.parse(moviesRequest.responseText);
