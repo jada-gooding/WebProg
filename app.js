@@ -75,33 +75,45 @@ function createMovie(){
     var title = document.getElementById("title").value;
     var year = document.getElementById("year").value;
     var listed = document.getElementById("genres");
-    var genre = listed.options[listed.selectedIndex].value;
-    let gen = JSON.parse(genre);
 
-    g = new Genre();
-    g.name= gen.name;
-    g.movies = gen.movies;
-    let movie = new Movie();
-    movie.uuid = uuid;
-    movie.title = title;
-    movie.year = year;
-    movie.setGenre(g);
+    if (uuid != "" && title != "" && year != "" && listed != "") {
 
-    for(var i=0; i<movies.length; i++){
-        if(uuid === movies[i].uuid){
-            alert("Movie with that ID already exists");
-            document.getElementById("createMovie").reset();
-            return false;
+        var genre = listed.options[listed.selectedIndex].value;
+        let gen = JSON.parse(genre);
+
+        g = new Genre();
+        g.name= gen.name;
+        g.movies = gen.movies;
+        let movie = new Movie();
+        movie.uuid = uuid;
+        movie.title = title;
+        movie.year = year;
+        movie.setGenre(g);
+
+        for(var i=0; i<movies.length; i++){
+            if(uuid === movies[i].uuid){
+                alert("Movie with that ID already exists");
+                document.getElementById("createMovie").reset();
+                return false;
+            }
         }
+
+        enqueue(movies, movie);
+
+        document.getElementById("createMovie").reset(); 
+
+        console.log(movie);
+
+        document.getElementById('movieConfirm').innerHTML = movie.title + ' successfully added';
+        document.getElementById('movieConfirm').style.opacity = '1'; 
+
+
+        displayMovies();
     }
-
-    enqueue(movies, movie);
-
-    document.getElementById("createMovie").reset(); 
-
-    console.log(movie);
-
-    displayMovies();
+    
+    else {
+        alert("Please fill out all areas to add the movie!"); 
+    }
 
     
 }
