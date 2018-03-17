@@ -1,5 +1,5 @@
-var first_names = ['Tevin', 'Jimmel', 'Matthew', 'John', 'Jane']; 
-var last_names = ['Achong', 'Greer', 'Forbes', 'Doe', 'Johnson']; 
+var first_names = ['Tevin', 'Jimmel', 'Matthew', 'John', 'Jada']; 
+var last_names = ['Achong', 'Greer', 'Forbes', 'Doe', 'Gooding']; 
 
 /* Creating function to merge two elements */
 function merge(el1, el2) {
@@ -34,7 +34,14 @@ console.log(mergeHandler(first_names, last_names, merge));
 console.log(merge2Single(first_names, last_names)); 
 console.log(merge2Object(first_names, last_names)); 
 
-
+if(module){
+    module.exports ={
+        'merge': merge,
+        'mergeHandler': mergeHandler,
+        'merge2Single': merge2Single,
+        'merge2Object': merge2Object
+    };
+}
 
 
 
