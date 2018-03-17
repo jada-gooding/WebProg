@@ -3,11 +3,12 @@ function generateEven(n){
 
 	for(var i=2;i<=n;i+=2)
 		arr.push(i);
-	return ar;
+	return arr;
 }
 
 function getSize(arr){
-	console.log(arr.length);
+	var size = arr.length;
+	return size;
 }
 
 function addTo(arr,val,pos){
@@ -25,14 +26,15 @@ function dequeue(arr){
 	return arr.shift();
 }
 
-function addToObj(obj,i,val){
-	obj.i="val";
+function addToObj(obj,loc,val){
+	obj.loc= loc;
+	obj.val =val;
 	return obj;
 }
 
 
 function JSsort(arr,asc){ // asc could be a boolean here
-if(asc==true){
+	if(asc==true){
 		return arr.sort();
 	}		
 	else
@@ -48,3 +50,18 @@ function displayAll(obj){
 function flatten(obj){
 	return JSON.stringify(obj);
 }
+
+if (module){
+	module.exports ={
+		'generateEven': generateEven,
+		'getSize': getSize,
+		'addTo': addTo,
+		'enqueue':enqueue,
+		'dequeue': dequeue,
+		'addToObj': addToObj,
+		'JSsort': JSsort,
+		'flatten': flatten,
+	}
+}
+
+
