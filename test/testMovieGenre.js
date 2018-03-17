@@ -1,4 +1,4 @@
-const movieGenre = require('./movieGenre').movieGenre;
+const movieGenre = require('../js/movieGenre').movieGenre;
 const assert = require('assert');
 
 function createMovie(){
