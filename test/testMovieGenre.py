@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, '../py')
 from movieGenre import Movie
 from movieGenre import Genre
 import unittest
