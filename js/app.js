@@ -18,7 +18,7 @@ function myUtil( url ) {
     ajax.send(null);
 }
 
-myUtil('util.js');
+myUtil('js/util.js');
 
 //global arrays
 const genres = [];
