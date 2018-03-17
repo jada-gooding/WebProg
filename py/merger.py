@@ -1,5 +1,5 @@
-first_names = ['Tevin', 'Jimmel', 'Matthew', 'John', 'Jane']
-last_names = ['Achong', 'Greer', 'Forbes', 'Doe', 'Johnson']
+first_names = ['Tevin', 'Jimmel', 'Matthew', 'John', 'Jada']
+last_names = ['Achong', 'Greer', 'Forbes', 'Doe', 'Gooding']
 
 def merge(el1, el2):
     return el1 + ' ' + el2
