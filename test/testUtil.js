@@ -1,5 +1,5 @@
 const assert = require('assert');
-const utils = require('./util');
+const utils = require('../js/util');
 
 
 function test_generateEven(){
