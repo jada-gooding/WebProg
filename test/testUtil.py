@@ -1,5 +1,6 @@
+import sys
+sys.path.insert(0, '../py')
 from util import *
-
 
 def test_generateEven():
     return generateEven(20)
